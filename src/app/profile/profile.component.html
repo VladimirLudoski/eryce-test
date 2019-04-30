@@ -1,0 +1,113 @@
+<head>
+</head>
+<body fxLayoutAlign="center center">
+  <!-- Main div -->
+  <div fxLayout="column" fxLayoutAlign="start center" fxFlex="40" fxFlex.lt-sm="100" fxLayoutGap="5px" *ngIf="user != null">
+    <!-- Top card -->
+    <mat-card fxFill>
+        <div fxLayout="column" fxLayoutAlign="start center" fxFill>
+          <img mat-card-image src="../../assets/users-bg.png">
+          <div mat-card-avatar class="header-image"></div>
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <button mat-button>Timeline</button>
+            <button mat-button>About</button>
+            <button mat-button>Friends</button>
+            <button mat-button>Photos</button>
+            <button mat-button>Videos</button>
+            <button mat-button>...</button>
+          </div>
+        </div>
+    </mat-card>
+    <!-- Bottom div -->
+    <div fxLayout="row" fxLayoutAlign="center start" fxFill fxLayoutGap="20px">
+      <div fxLayout="column" fxLayoutAlign="center center" fxFlex="20" fxLayoutGap="5px">
+        <!-- First column -->
+        <mat-card fxFill>
+          <h6>{{user.username}}'s' badges</h6>
+          <mat-divider></mat-divider>
+          <mat-icon>card_travel</mat-icon>
+          <mat-icon>android</mat-icon>
+          <mat-icon>commute</mat-icon>
+          <mat-icon>alarm</mat-icon>
+          <mat-icon>copyright</mat-icon>
+          <mat-icon>grade</mat-icon>
+          <mat-icon>home</mat-icon>
+          <mat-icon>face</mat-icon>
+        </mat-card>
+        <mat-card fxFill>
+          <h6>My Stopify Playlist</h6>
+          <mat-divider></mat-divider>
+          <div fxLayout="row" fxLayoutGap="5px">
+            <img class="photos">
+            <h5>Some song</h5>
+          </div>
+          <div fxLayout="row" fxLayoutGap="5px">
+            <img class="photos">
+            <h5>Some song</h5>
+          </div>
+          <div fxLayout="row" fxLayoutGap="5px">
+            <img class="photos">
+            <h5>Some song</h5>
+          </div>
+          <div fxLayout="row" fxLayoutGap="5px">
+            <img class="photos">
+            <h5>Some song</h5>
+          </div>
+        </mat-card>
+      </div>
+      <!-- Second column -->
+      <div fxLayout="column" fxLayoutAlign="center strech" fxFlex fxLayoutGap="5px">
+        <mat-card>
+          <div fxLayout="row" fxLayoutAlign="start strech" fxLayoutGap="10px">
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-content>
+              <h5>{{user.username}}</h5>
+              <h6>19 hours ago</h6>
+            </mat-card-content>
+          </div>
+          <h6>Some content than can be displayed here.</h6>
+        </mat-card>
+        <mat-card>
+          <div fxLayout="row" fxLayoutAlign="start strech" fxLayoutGap="10px">
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-content>
+              <h5>{{user.username}}</h5>
+              <h6>19 hours ago</h6>
+            </mat-card-content>
+          </div>
+          <h6>Some different content than can be displayed here too.</h6>
+        </mat-card>
+        <mat-card>
+          <div fxLayout="row" fxLayoutAlign="start strech" fxLayoutGap="10px">
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-content>
+              <h5>{{user.username}}</h5>
+              <h6>19 hours ago</h6>
+            </mat-card-content>
+          </div>
+          <h6>A wiki is a website on which users collaboratively modify content and structure directly from the web browser.</h6>
+        </mat-card>
+      </div>
+      <!-- Third column -->
+      <div fxLayout="column" fxLayoutAlign="center center" fxFlex="30" fxLayoutGap="5px">
+        <mat-card fxFill>
+          <h6>Last photos</h6>
+          <mat-grid-list cols="3" rows="3">
+            <mat-grid-tile><img class="photos"></mat-grid-tile>
+            <mat-grid-tile><img class="photos"></mat-grid-tile>
+            <mat-grid-tile><img class="photos"></mat-grid-tile>
+            <mat-grid-tile><img class="photos"></mat-grid-tile>
+            <mat-grid-tile><img class="photos"></mat-grid-tile>
+            <mat-grid-tile><img class="photos"></mat-grid-tile>
+            <mat-grid-tile><img class="photos"></mat-grid-tile>
+            <mat-grid-tile><img class="photos"></mat-grid-tile>
+            <mat-grid-tile><img class="photos"></mat-grid-tile>
+            </mat-grid-list>
+        </mat-card>
+        <mat-card fxFill>
+          <h6>{{user.username}}'s Poll</h6>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</body>

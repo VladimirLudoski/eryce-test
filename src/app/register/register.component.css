@@ -1,0 +1,23 @@
+body {
+  background: linear-gradient(
+    rgba(255, 82, 51, 0.9), 
+    rgba(255, 82, 51, 0.9)
+  ), url("src/assets/users-bg.png");
+  height: 100%;
+  margin: 0;
+  padding: 0;
+ }
+
+.transparent-white-text{
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.white-text{
+  color: #ffffff;
+}
+
+#complete-button {
+  background-color: blueviolet;
+  color: #ffffff;
+}
