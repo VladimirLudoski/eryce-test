@@ -1,17 +1,130 @@
 body {
-  background-color: #747474;
+  background-color: #EDF1F5;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
-.header-image {
-  background-image: url("src/assets/users-bg.png");
+.mat-card {
+  color: gray;
 }
 
-.photos {
-  display: block;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background: url("src/assets/nature.jpg") no-repeat;
-  width: 60px; /* Width of new image */
-  height: 60px; /* Height of new image */
-  padding-left: 60px;
+#logo-image {
+  background-image: url("src/assets/logo.png");
+  width: 34px;
+  height: 34px;
+  background-color: #f96348;
+}
+
+#top-row {
+  width: 100%;
+  background-color: #424457;
+  height: 54px;
+}
+
+#top-row h6 {
+  padding: 0 10px 0 10px;
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.5em;
+}
+
+#search {
+  width: 250px;
+}
+
+#top-row .mat-icon {
+  padding: 0 10px 0 10px;
+  color: #ffffff;
+}
+
+#top-right-card {
+  height: 34px;
+}
+
+#side-icons {
+  color: rgb(184, 184, 184);
+  background-color: #ffffff;
+}
+
+.nav-button {
+  height: 50px;
+}
+
+#cover-icons {
+  width: 100%;
+  margin: -35px 0 0 0;
+}
+
+#cover-icon1 {
+  background-color: turquoise;
+  padding: 8px;
+  border-radius: 30px;
+  color: white;
+}
+
+#cover-icon2 {
+  background-color: rgb(226, 0, 226);
+  padding: 8px;
+  border-radius: 30px;
+  color: white;
+}
+
+#cover-icon3 {
+  background-color: rgb(255, 81, 0);
+  padding: 8px;
+  border-radius: 30px;
+  color: white;
+}
+
+#content {
+  max-width: 940px;
+}
+
+.content-card h6 {
+  margin: 0;
+  text-align: left;
+}
+
+.content-icons {
+  margin: 0 -29px 0 0;
+  color: rgb(184, 184, 184);
+}
+
+#content-photo {
+  background-image: url("src/assets/content-photo.jpg");
+  width: 416px;
+  height: 140px;
+}
+
+#poll h6 {
+  text-align: left;
+  margin: 5px;
+}
+
+#top-icons-sm-div {
+  background-color: #424457;
+  height: 34px;
+}
+
+.top-icons-sm {
+  color: gray;
+}
+
+#top-right-icon-sm-div {
+  background-color: #7c5dbb;
+  height: 34px;
+}
+
+.top-right-icon-sm {
+  color: white;
+}
+
+.nav-button-sm {
+  width: 80px;
+}
+
+.content-icons-sm {
+  margin: -29px 0 0 0;
+  color: rgb(184, 184, 184);
 }

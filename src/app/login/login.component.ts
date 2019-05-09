@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
     this.submitted = true;
     // Stop here if form is invalid
     if (this.userForm.invalid) { return; }
+    this.loading = true;
+    // This is where login logic comes
     this.loading = false;
   }
 

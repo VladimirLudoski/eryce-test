@@ -6,7 +6,7 @@ import { User } from '../models/user';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css', './photos.css', './avatars.css', './songs.css', './badges.css']
 })
 export class ProfileComponent implements OnInit {
 
@@ -31,8 +31,8 @@ export class ProfileComponent implements OnInit {
         // It will fail so I will mock some data
         this.user = new User();
         this.user.id = 1;
-        this.user.username = 'Marko';
-        this.user.email = 'marko@gmail.com';
+        this.user.username = 'Jack Black';
+        this.user.email = 'tenaciousd@gmail.com';
       });
   }
 

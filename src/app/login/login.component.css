@@ -3,18 +3,60 @@ body {
     rgba(255, 82, 51, 0.9), 
     rgba(255, 82, 51, 0.9)
   ), url("src/assets/users-bg.png");
-  height: 100%;
-  margin: 0;
-  padding: 0;
  }
 
-.transparent-white-text{
-  background-color: rgba(255, 255, 255, 0.1);
+#logo h3, #logo h6 {
+  color: #ffffff;
+  margin: 0;
+}
+
+#logo-image {
+  background-image: url("src/assets/logo.png");
+  width: 34px;
+  height: 34px;
+}
+
+#clear-all-icon {
   color: #ffffff;
 }
 
-.white-text{
+#content-about, #content-login {
+  max-width: 400px;
+}
+
+#content-about h2, #content-about h6 {
   color: #ffffff;
+  text-align: left;
+}
+
+#register-button {
+  color: #ffffff;
+  border-width: 2px;
+  border-color: #ffffff;
+}
+
+#register-button:hover {
+  background-color: rgba(199, 199, 199, 0.3)
+}
+
+#power-icon {
+  color: rgb(185, 185, 185);
+  padding: 30px;
+  background: #ffffff;
+}
+
+#plus-icon {
+  color: rgb(226, 81, 81);
+  padding: 30px;
+  background: #ffffff;
+}
+
+.mat-card {
+  text-align: left;
+}
+
+#forgot-my-password {
+  white-space: nowrap;
 }
 
 #login-button {

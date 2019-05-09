@@ -1,87 +1,100 @@
-<head>
-</head>
 <body fxLayoutAlign="center center">
   <!-- Main div -->
-  <div fxLayout="column" fxLayoutAlign="center center" fxFlex="40" fxFlex.lt-sm="100" fxLayoutGap="50px">
-      <!-- First row -->
-      <div fxLayout="row" fxLayoutAlign="space-between center" fxFill> 
-        <div class="white-text">Olympus network</div>
-        <div><img src="../../assets/logo.png"></div>
-      </div>
-      <!-- Second row -->
-      <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutAlign="space-between center"> 
-        <!-- About site -->
-        <div fxFlex="0 1 calc(50% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
-          <mat-card class="transparent-white-text">
-            <h1>Welcome to the Biggest Social Network in the World</h1>
-            <h4>
-            We are the best and biggest social network with 5 bilion active users all around the world.
-            Share your thoughts, write blog posts, show your favorite music via Stopify, earn badges and much more!
-          </h4>
-          </mat-card>
+  <div fxLayout="column" fxLayoutAlign="center center" fxFlex.lt-sm="90" fxLayoutGap="50px">
+    <!-- Logo row -->
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxFill> 
+      <div id="logo" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+        <div id="logo-image"></div>
+        <div fxLayout="column" fxLayoutAlign="center start">
+          <h3>OLYMPUS</h3>
+          <h6>SOCIAL NETWORK</h6>
         </div>
-        <!-- Register form -->
-        <div fxFlex="0 1 calc(50% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
-          <mat-card>
-            <mat-card-title>Register to Olympus</mat-card-title>
-            <mat-dialog-content>
-              <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-                <!-- First name -->
-                <mat-form-field fxFill>
-                  <mat-label for="firstName">First Name</mat-label>
-                  <input matInput type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"/>
-                  <div *ngIf="submitted && f.firstName.errors && f.firstName.dirty" class="invalid-feedback">
-                    <div *ngIf="f.firstName.errors.required">First name is required.</div>
-                  </div>
-                </mat-form-field>
-                <!-- Last Name -->
-                <mat-form-field fxFill>
-                  <mat-label for="lastName">Last Name</mat-label>
-                  <input matInput type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"/>
-                  <div *ngIf="submitted && f.lastName.errors && f.lastName.dirty" class="invalid-feedback">
-                    <div *ngIf="f.lastName.errors.required">Last name is required.</div>
-                  </div>
-                </mat-form-field>
-                <!-- Email -->
-                <mat-form-field fxFill>
-                  <mat-label for="email">Email</mat-label>
-                  <input matInput type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" autofocus/>
-                  <div *ngIf="submitted && f.email.errors && f.email.dirty" class="invalid-feedback">
-                    <div *ngIf="f.email.errors.required">Email is required.</div>
-                    <div *ngIf="f.email.errors.email">Must be a valid email address.</div>
-                  </div>
-                </mat-form-field>
-                <!-- Password -->
-                <mat-form-field fxFill>
-                  <mat-label for="password">Password</mat-label>
-                  <input matInput type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                  <div *ngIf="submitted && f.password.errors && f.password.dirty" class="invalid-feedback">
-                    <div *ngIf="f.password.errors.required">Password is required.</div>
-                  </div>
-                </mat-form-field>
-                <!-- Birthday -->
-                <mat-form-field fxFill>
-                    <mat-label for="birthday">Birthday</mat-label>
-                    <input matInput type="date" formControlName="birthday" />
-                </mat-form-field>
-                <mat-form-field fxFill>
-                  <mat-label for="gender">Your Gender</mat-label>
-                  <input matInput type="gender" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" />
-                  <div *ngIf="submitted && f.gender.errors && f.gender.dirty" class="invalid-feedback">
-                    <div *ngIf="f.gender.errors.required">Gender is required.</div>
-                  </div>
-                </mat-form-field>
-                <!-- Terms and conditions -->
-                <mat-checkbox><h6>I accept <a href="">Terms and Conditions</a> of the website</h6></mat-checkbox>
-                <!-- Button -->
-                <div class="form-group">
-                  <button id="complete-button" mat-button [disabled]="loading" fxFill>Complete registration</button>
-                  <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+      </div>
+      <mat-icon id="clear-all-icon">clear_all</mat-icon>
+    </div>
+    <!-- Content row -->
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between center" fxLayoutAlign.lt-sm="start center" fxLayoutGap="30px" fxFill> 
+      <!-- About site -->
+      <div id="content-about" fxLayout="column" fxLayoutAlign="center start">
+        <h2>Welcome to the Biggest Social Network in the World</h2>
+        <h6>
+          We are the best and biggest social network with 5 bilion active users all around the world.
+          Share your thoughts, write blog posts, show your favorite music via Spotify, earn badges and much more!
+        </h6>
+      </div>
+      <!-- Register form --> 
+      <div id="content-register" fxLayout="row" fxLayout.lt-sm="column">
+        <div fxLayout="column" fxLayout.lt-sm="row" fxLayoutAlign="space-around strech">
+          <div id="power-icon" fxLayoutAlign="center center" fxFlex="50">
+            <mat-icon>power_settings_new</mat-icon>
+          </div>
+          <div id="plus-icon" fxLayoutAlign="center center" fxFlex>
+            <mat-icon>autorenew</mat-icon>
+          </div>
+        </div>
+        <mat-card>
+          <h6>Register to Olympus</h6>
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="space-between center" fxLayoutAlign.lt-sm="center strech" fxLayoutGap="10px" fxLayoutGap.lt-sm="0px">
+              <!-- First name -->
+              <mat-form-field>
+                <mat-label for="firstName">First Name</mat-label>
+                <input matInput type="text" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" autofocus/>
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">First name is required.</div>
                 </div>
-              </form>
-            </mat-dialog-content>
-          </mat-card>
-        </div>
+              </mat-form-field>
+              <!-- Last Name -->
+              <mat-form-field>
+                <mat-label for="lastName">Last Name</mat-label>
+                <input matInput type="text" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"/>
+                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="f.lastName.errors.required">Last name is required.</div>
+                </div>
+              </mat-form-field>
+            </div>
+            <!-- Email -->
+            <mat-form-field fxFill>
+              <mat-label for="email">Email</mat-label>
+              <input matInput type="text" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required.</div>
+                <div *ngIf="f.email.errors.email">Must be a valid email address.</div>
+              </div>
+            </mat-form-field>
+            <!-- Password -->
+            <mat-form-field fxFill>
+              <mat-label for="password">Password</mat-label>
+              <input matInput type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required.</div>
+              </div>
+            </mat-form-field>
+            <!-- Birthday -->
+            <mat-form-field fxFill>
+              <mat-label for="birthday">Birthday</mat-label>
+              <input matInput type="date" formControlName="birthday" [ngClass]="{ 'is-invalid': submitted && f.birthday.errors }" />
+              <div *ngIf="submitted && f.birthday.errors" class="invalid-feedback">
+                <div *ngIf="f.birthday.errors.required">Birthday is required.</div>
+              </div>
+            </mat-form-field>
+            <mat-form-field fxFill>
+              <mat-label for="gender">Your Gender</mat-label>
+              <input matInput type="gender" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" />
+              <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                <div *ngIf="f.gender.errors.required">Gender is required.</div>
+              </div>
+            </mat-form-field>
+            <!-- Terms and conditions -->
+            <mat-checkbox><h6>I accept <a href="">Terms and Conditions</a> of the website</h6></mat-checkbox>
+            <!-- Button -->
+            <div class="form-group">
+              <button id="complete-button" mat-button [disabled]="loading" fxFill>Complete registration</button>
+              <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            </div>
+          </form>
+        </mat-card>
       </div>
+    </div>
   </div>
 </body>

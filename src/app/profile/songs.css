@@ -1,0 +1,29 @@
+#song1 {
+  background-image: url("src/assets/song1.jpg");
+  width: 50px;
+  height: 50px;
+}
+
+#song2 {
+  background-image: url("src/assets/song2.jpg");
+  width: 50px;
+  height: 50px;
+}
+
+#song3 {
+  background-image: url("src/assets/song3.jpg");
+  width: 50px;
+  height: 50px;
+}
+
+#song4 {
+  background-image: url("src/assets/song4.jpg");
+  width: 50px;
+  height: 50px;
+}
+
+#song5 {
+  background-image: url("src/assets/song5.jpg");
+  width: 50px;
+  height: 50px;
+}

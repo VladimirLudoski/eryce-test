@@ -3,18 +3,46 @@ body {
     rgba(255, 82, 51, 0.9), 
     rgba(255, 82, 51, 0.9)
   ), url("src/assets/users-bg.png");
-  height: 100%;
-  margin: 0;
-  padding: 0;
  }
 
-.transparent-white-text{
-  background-color: rgba(255, 255, 255, 0.1);
+ #logo h3, #logo h6 {
+  color: #ffffff;
+  margin: 0;
+}
+
+#logo-image {
+  background-image: url("src/assets/logo.png");
+  width: 34px;
+  height: 34px;
+}
+
+#clear-all-icon {
   color: #ffffff;
 }
 
-.white-text{
+#content-about, #content-register {
+  max-width: 500px;
+}
+
+#content-about h2, #content-about h6 {
   color: #ffffff;
+  text-align: left;
+}
+
+#power-icon {
+  color: rgb(185, 185, 185);
+  padding: 30px;
+  background: #ffffff;
+}
+
+#plus-icon {
+  color: rgb(226, 81, 81);
+  padding: 30px;
+  background: #ffffff;
+}
+
+.mat-card {
+  text-align: left;
 }
 
 #complete-button {

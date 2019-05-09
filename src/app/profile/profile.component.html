@@ -1,113 +1,425 @@
-<head>
-</head>
-<body fxLayoutAlign="center center">
-  <!-- Main div -->
-  <div fxLayout="column" fxLayoutAlign="start center" fxFlex="40" fxFlex.lt-sm="100" fxLayoutGap="5px" *ngIf="user != null">
-    <!-- Top card -->
-    <mat-card fxFill>
-        <div fxLayout="column" fxLayoutAlign="start center" fxFill>
-          <img mat-card-image src="../../assets/users-bg.png">
-          <div mat-card-avatar class="header-image"></div>
-          <div fxLayout="row" fxLayoutAlign="center center">
-            <button mat-button>Timeline</button>
-            <button mat-button>About</button>
-            <button mat-button>Friends</button>
-            <button mat-button>Photos</button>
-            <button mat-button>Videos</button>
-            <button mat-button>...</button>
+<body fxLayout="row" fxLayoutAlign="center start">
+  <!-- For large screens -->
+  <div fxLayout="column" fxLayoutAlign="start start" fxShow.lt-md="false" fxFill>
+    <!-- Top row -->
+    <div id="top-row" fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <div id="logo-image"></div>
+        <h6>PROFILE PAGE</h6>
+        <form fxLayout="row" fxLayoutAlign="center center">
+          <input id="search" type="search" class="mat-elevation-z2" placeholder="Search here for people or pages...">
+          <mat-icon matSuffix>search</mat-icon>
+        </form>
+        <h6>Find Friends</h6>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-icon>tag_faces</mat-icon>
+        <mat-icon>message</mat-icon>
+        <mat-icon>speaker_phone</mat-icon>
+        <div fxLayout="row" fxLayoutAlign="center center">
+          <div class="avatar-small" mat-card-avatar></div>
+          <div fxLayout="column" fxLayoutAlign="center start">
+            <h6>{{user.username}}</h6>
+            <h6>SPACE COWBOY</h6>
           </div>
         </div>
-    </mat-card>
-    <!-- Bottom div -->
-    <div fxLayout="row" fxLayoutAlign="center start" fxFill fxLayoutGap="20px">
-      <div fxLayout="column" fxLayoutAlign="center center" fxFlex="20" fxLayoutGap="5px">
-        <!-- First column -->
-        <mat-card fxFill>
-          <h6>{{user.username}}'s' badges</h6>
-          <mat-divider></mat-divider>
-          <mat-icon>card_travel</mat-icon>
-          <mat-icon>android</mat-icon>
-          <mat-icon>commute</mat-icon>
-          <mat-icon>alarm</mat-icon>
-          <mat-icon>copyright</mat-icon>
-          <mat-icon>grade</mat-icon>
-          <mat-icon>home</mat-icon>
-          <mat-icon>face</mat-icon>
-        </mat-card>
-        <mat-card fxFill>
-          <h6>My Stopify Playlist</h6>
-          <mat-divider></mat-divider>
-          <div fxLayout="row" fxLayoutGap="5px">
-            <img class="photos">
-            <h5>Some song</h5>
-          </div>
-          <div fxLayout="row" fxLayoutGap="5px">
-            <img class="photos">
-            <h5>Some song</h5>
-          </div>
-          <div fxLayout="row" fxLayoutGap="5px">
-            <img class="photos">
-            <h5>Some song</h5>
-          </div>
-          <div fxLayout="row" fxLayoutGap="5px">
-            <img class="photos">
-            <h5>Some song</h5>
-          </div>
-        </mat-card>
-      </div>
-      <!-- Second column -->
-      <div fxLayout="column" fxLayoutAlign="center strech" fxFlex fxLayoutGap="5px">
-        <mat-card>
-          <div fxLayout="row" fxLayoutAlign="start strech" fxLayoutGap="10px">
-            <div mat-card-avatar class="header-image"></div>
-            <mat-card-content>
-              <h5>{{user.username}}</h5>
-              <h6>19 hours ago</h6>
-            </mat-card-content>
-          </div>
-          <h6>Some content than can be displayed here.</h6>
-        </mat-card>
-        <mat-card>
-          <div fxLayout="row" fxLayoutAlign="start strech" fxLayoutGap="10px">
-            <div mat-card-avatar class="header-image"></div>
-            <mat-card-content>
-              <h5>{{user.username}}</h5>
-              <h6>19 hours ago</h6>
-            </mat-card-content>
-          </div>
-          <h6>Some different content than can be displayed here too.</h6>
-        </mat-card>
-        <mat-card>
-          <div fxLayout="row" fxLayoutAlign="start strech" fxLayoutGap="10px">
-            <div mat-card-avatar class="header-image"></div>
-            <mat-card-content>
-              <h5>{{user.username}}</h5>
-              <h6>19 hours ago</h6>
-            </mat-card-content>
-          </div>
-          <h6>A wiki is a website on which users collaboratively modify content and structure directly from the web browser.</h6>
-        </mat-card>
-      </div>
-      <!-- Third column -->
-      <div fxLayout="column" fxLayoutAlign="center center" fxFlex="30" fxLayoutGap="5px">
-        <mat-card fxFill>
-          <h6>Last photos</h6>
-          <mat-grid-list cols="3" rows="3">
-            <mat-grid-tile><img class="photos"></mat-grid-tile>
-            <mat-grid-tile><img class="photos"></mat-grid-tile>
-            <mat-grid-tile><img class="photos"></mat-grid-tile>
-            <mat-grid-tile><img class="photos"></mat-grid-tile>
-            <mat-grid-tile><img class="photos"></mat-grid-tile>
-            <mat-grid-tile><img class="photos"></mat-grid-tile>
-            <mat-grid-tile><img class="photos"></mat-grid-tile>
-            <mat-grid-tile><img class="photos"></mat-grid-tile>
-            <mat-grid-tile><img class="photos"></mat-grid-tile>
-            </mat-grid-list>
-        </mat-card>
-        <mat-card fxFill>
-          <h6>{{user.username}}'s Poll</h6>
-        </mat-card>
+        
       </div>
     </div>
+    <!-- Main row -->
+    <div fxLayout="row" fxLayoutAlign="space-between start" fxFill>
+      <!-- Left icons -->
+      <div id="side-icons" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="5px" fxFlex="34px" fxFill>
+        <mat-icon>alarm_on</mat-icon>
+        <mat-icon>credit_card</mat-icon>
+        <mat-icon>event</mat-icon>
+        <mat-icon>face</mat-icon>
+        <mat-icon>flip_to_front</mat-icon>
+        <mat-icon>favorite_border</mat-icon>
+        <mat-icon>input</mat-icon>
+        <mat-icon>fingerprint</mat-icon>
+        <mat-icon>line_style</mat-icon>
+        <mat-icon>perm_identity</mat-icon>
+        <mat-icon>redeem</mat-icon>
+      </div>
+      <!-- Content div -->
+      <div id="content" fxLayout="column" fxLayoutAlign="start center" fxFlex.lt-sm="90" fxLayoutGap="5px" *ngIf="user != null">
+        <!-- Header card -->
+        <mat-card fxFill>
+          <div fxLayout="column" fxLayoutAlign="start center" fxFill>
+            <img mat-card-image src="../../assets/cover.jpg">
+            <div id="cover-icons" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="5px">
+              <mat-icon id="cover-icon1">sentiment_satisfied_alt</mat-icon>
+              <mat-icon id="cover-icon2">message</mat-icon>
+              <mat-icon id="cover-icon3">settings</mat-icon>
+            </div>
+            <div class="avatar" mat-card-avatar></div>
+            <div style="width: 100%" fxLayout="row" fxLayoutAlign="space-between center">
+              <button fxFlex="17" class="nav-button" mat-stroked-button>Timeline</button>
+              <button fxFlex="16" class="nav-button" mat-stroked-button>About</button>
+              <button fxFlex="17" class="nav-button" mat-stroked-button>Friends</button>
+              <button fxFlex="16" class="nav-button" mat-stroked-button>Photos</button>
+              <button fxFlex="17" class="nav-button" mat-stroked-button>Videos</button>
+              <button fxFlex class="nav-button" mat-stroked-button>...</button>
+            </div>
+          </div>
+        </mat-card>
+        <!-- Content -->
+        <div fxLayout="row" fxLayoutAlign="center start" fxFill fxLayoutGap="40px">
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="25" fxLayoutGap="5px">
+            <!-- First column -->
+            <!-- Bagdes -->
+            <mat-card fxFill>
+              <h6>{{user.username}}'s' badges</h6>
+              <mat-divider></mat-divider>
+              <mat-grid-list cols="5" rows="2">
+                <mat-grid-tile><div id="badge1"></div></mat-grid-tile>
+                <mat-grid-tile><div id="badge2"></div></mat-grid-tile>
+                <mat-grid-tile><div id="badge3"></div></mat-grid-tile>
+                <mat-grid-tile><div id="badge4"></div></mat-grid-tile>
+                <mat-grid-tile><div id="badge5"></div></mat-grid-tile>
+                <mat-grid-tile><div id="badge6"></div></mat-grid-tile>
+                <mat-grid-tile><div id="badge7"></div></mat-grid-tile>
+                <mat-grid-tile><div id="badge8"></div></mat-grid-tile>
+                <mat-grid-tile><div id="badge9"></div></mat-grid-tile>
+                <mat-grid-tile><div id="badge10"></div></mat-grid-tile>
+              </mat-grid-list>
+            </mat-card>
+            <!-- Playlist -->
+            <mat-card fxFill>
+              <h6>My Spotify Playlist</h6>
+              <mat-divider></mat-divider>
+              <div fxLayout="column" fxLayoutGap="10px">
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+                    <h6>1</h6>
+                    <div id="song1"></div>
+                    <div class="content-card" fxLayout="column" fxLayoutAlign="center start">
+                      <h6>The Past Starts Slow...</h6>
+                      <h6>System of a Revenge</h6>
+                    </div>
+                  </div>
+                  <h6>3:22</h6>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+                    <h6>2</h6>
+                    <div id="song2"></div>
+                    <div class="content-card" fxLayout="column" fxLayoutAlign="center start">
+                      <h6>The Pretender</h6>
+                      <h6>Kung Fighters</h6>
+                    </div>
+                  </div>
+                  <h6>5:48</h6>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+                    <h6>3</h6>
+                    <div id="song3"></div>
+                    <div class="content-card" fxLayout="column" fxLayoutAlign="center start">
+                      <h6>Blood Mother</h6>
+                      <h6>Iron Maid</h6>
+                    </div>
+                  </div>
+                  <h6>3:06</h6>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+                    <h6>4</h6>
+                    <div id="song4"></div>
+                    <div class="content-card" fxLayout="column" fxLayoutAlign="center start">
+                      <h6>Seven Nation Army</h6>
+                      <h6>The Black Stripes</h6>
+                    </div>
+                  </div>
+                  <h6>6:17</h6>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+                    <h6>5</h6>
+                    <div id="song5"></div>
+                    <div class="content-card" fxLayout="column" fxLayoutAlign="center start">
+                      <h6>Killer Queen</h6>
+                      <h6>Archduke</h6>
+                    </div>
+                  </div>
+                  <h6>5:40</h6>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+          <!-- Second column -->
+          <div fxLayout="column" fxLayoutAlign="center strech" fxFlex fxLayoutGap="5px">
+            <!-- First post -->
+            <mat-card class="content-card" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="20px">
+              <div fxLayout="row" fxLayoutAlign="space-between start">
+                <div fxLayout="column" fxLayoutGap="10px">
+                  <div fxLayout="row" fxLayoutAlign="start center">
+                    <div class="avatar-small" mat-card-avatar></div>
+                    <div fxLayout="column" fxLayoutAlign="center start">
+                      <h6>{{user.username}}</h6>
+                      <h6>19 hours ago</h6>
+                    </div>
+                  </div>
+                  <h6>General definitions of music include common elements such as pitch (which governs melody and harmony), rhythm (and its associated concepts tempo, meter, and articulation), dynamics (loudness and softness), and the sonic qualities of timbre and texture (which are sometimes termed the "color" of a musical sound).</h6>
+                </div>
+                <div class="content-icons" fxLayout="column" fxLayoutAlign="start space-around">
+                  <mat-icon>language</mat-icon>
+                  <mat-icon>favorite_border</mat-icon>
+                  <mat-icon>event</mat-icon>
+                  <mat-icon>send</mat-icon>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="width: 100%" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="row" fxLayoutAlign="start center">
+                  <mat-icon>favorite_border</mat-icon>
+                  <h6>8</h6>
+                  <div class="avatar1" mat-card-avatar></div>
+                  <div class="avatar2 avatar-overlap" mat-card-avatar></div>
+                  <div class="avatar3 avatar-overlap" mat-card-avatar></div>
+                  <div class="avatar4 avatar-overlap" mat-card-avatar></div>
+                  <div class="avatar5 avatar-overlap" mat-card-avatar></div>
+                  <div fxLayout="column" fxLayoutAlign="center start">
+                    <h6>Janny Robert and</h6>
+                    <h6>6 more liked this</h6>
+                  </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end center">
+                  <mat-icon>language</mat-icon>
+                  <h6>17</h6>
+                  <mat-icon>send</mat-icon>
+                  <h6>24</h6>
+                </div>
+              </div>
+            </mat-card>
+            <!-- Second post -->
+            <mat-card class="content-card" fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="20px">
+              <div fxLayout="row" fxLayoutAlign="space-between start">
+                <div fxLayout="column" fxLayoutGap="10px">
+                  <div fxLayout="row" fxLayoutAlign="start center">
+                    <div class="avatar-small" mat-card-avatar></div>
+                    <div fxLayout="column" fxLayoutAlign="center start">
+                      <h6>{{user.username}} shared Diana Jameson's post</h6>
+                      <h6>7 hours ago</h6>
+                    </div>
+                  </div>
+                  <h6>Hi! Everyone should check this amazing photogrphs that my friend shot the past week. Here's one of them... Leave a kind comment!</h6>
+                  <div id="content-photo"></div>
+                  <div fxLayout="row" fxLayoutAlign="start start">
+                    <mat-divider [vertical]="true"></mat-divider>
+                    <div fxLayout="column" fxLayoutAlign="start start">
+                      <div fxLayout="row" fxLayoutAlign="start start">
+                          <div class="avatar5" mat-card-avatar></div>
+                          <div fxLayout="column" fxLayoutAlign="center start">
+                            <h6>{{user.username}} shared Diana Jameson's post</h6>
+                            <h6>7 hours ago</h6>
+                          </div>
+                        </div>
+                        <h6>Here is the forst photo of out incredible photoshoot from yesterday. If you like it please say so and tell me what you wanna see next!</h6>
+                    </div>
+                  </div>
+                </div>
+                <div class="content-icons" fxLayout="column" fxLayoutAlign="start space-around">
+                  <mat-icon>language</mat-icon>
+                  <mat-icon>favorite_border</mat-icon>
+                  <mat-icon>event</mat-icon>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+              <div style="width: 100%" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="row" fxLayoutAlign="start center">
+                  <mat-icon>favorite_border</mat-icon>
+                  <h6>8</h6>
+                  <div class="avatar1" mat-card-avatar></div>
+                  <div class="avatar6 avatar-overlap" mat-card-avatar></div>
+                  <div class="avatar7 avatar-overlap" mat-card-avatar></div>
+                  <div class="avatar2 avatar-overlap" mat-card-avatar></div>
+                  <div class="avatar3 avatar-overlap" mat-card-avatar></div>
+                  <div fxLayout="column" fxLayoutAlign="center start">
+                    <h6>Diana Nicholas and</h6>
+                    <h6>13 more liked this</h6>
+                  </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end center">
+                  <mat-icon>language</mat-icon>
+                  <h6>0</h6>
+                  <mat-icon>send</mat-icon>
+                  <h6>16</h6>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+          <!-- Third column -->
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlex="20" fxLayoutGap="5px">
+            <!-- Photos -->
+            <mat-card fxFill>
+              <h6>Last photos</h6>
+              <mat-grid-list cols="3" rows="3">
+                <mat-grid-tile><div id="photo1"></div></mat-grid-tile>
+                <mat-grid-tile><div id="photo2"></div></mat-grid-tile>
+                <mat-grid-tile><div id="photo3"></div></mat-grid-tile>
+                <mat-grid-tile><div id="photo4"></div></mat-grid-tile>
+                <mat-grid-tile><div id="photo5"></div></mat-grid-tile>
+                <mat-grid-tile><div id="photo6"></div></mat-grid-tile>
+                <mat-grid-tile><div id="photo7"></div></mat-grid-tile>
+                <mat-grid-tile><div id="photo8"></div></mat-grid-tile>
+                <mat-grid-tile><div id="photo9"></div></mat-grid-tile>
+              </mat-grid-list>
+            </mat-card>
+            <!-- Poll -->
+            <mat-card fxFill>
+              <div id="poll" fxLayout="column" fxLayoutAlign="start start">
+                <h6>{{user.username}}'s Poll</h6>
+                <h6>If you had to chose, which actor do you prefer to be the next Darkman?</h6>
+                <mat-radio-group [value]="actor">
+                  <div fxLayout='row' fxLayoutAlign="space-between center">
+                    <mat-radio-button><h5>Thomas Bale</h5></mat-radio-button>
+                    <h5>62%</h5>
+                  </div>
+                  <mat-progress-bar mode="determinate" value="62"></mat-progress-bar>
+                  <h6>12 friends voted for this</h6>
+                  <div fxLayout="row">
+                    <div class="avatar1" mat-card-avatar></div>
+                    <div class="avatar3 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar9 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar4 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar5 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar2 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar6 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar8 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar7 avatar-overlap" mat-card-avatar></div>
+                  </div>
+                  <div fxLayout='row' fxLayoutAlign="space-between center">
+                    <mat-radio-button><h5>Ben Robertson</h5></mat-radio-button>
+                    <h5>27%</h5>
+                  </div>
+                  <mat-progress-bar mode="determinate" value="27"></mat-progress-bar>
+                  <h6>7 friends voted for this</h6>
+                  <div fxLayout="row">
+                    <div class="avatar5" mat-card-avatar></div>
+                    <div class="avatar9 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar4 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar6 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar8 avatar-overlap" mat-card-avatar></div>
+                    <div class="avatar1 avatar-overlap" mat-card-avatar></div>
+                  </div>
+                  <div fxLayout='row' fxLayoutAlign="space-between center">
+                    <mat-radio-button><h5>Michael Streiton</h5></mat-radio-button>
+                    <h5>27%</h5>
+                  </div>
+                  <div fxLayout="row">
+                    <div class="avatar8" mat-card-avatar></div>
+                    <div class="avatar4 avatar-overlap" mat-card-avatar></div>
+                  </div>
+                  <mat-progress-bar mode="determinate" value="27"></mat-progress-bar>
+                  <h6>2 people voted for this</h6>
+                </mat-radio-group>
+              </div>
+              <button id="vote-button" mat-stroked-button (click)="onVote()">Vote Now!</button>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+      <!-- Right icons -->
+      <div id="side-icons" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="10px" fxFlex="34px" fxFill>
+          <div class="avatar1" mat-card-avatar></div>
+          <div class="avatar2" mat-card-avatar></div>
+          <div class="avatar3" mat-card-avatar></div>
+          <div class="avatar4" mat-card-avatar></div>
+          <div class="avatar5" mat-card-avatar></div>
+          <div class="avatar6" mat-card-avatar></div>
+          <div class="avatar7" mat-card-avatar></div>
+          <div class="avatar8" mat-card-avatar></div>
+          <div class="avatar9" mat-card-avatar></div>
+          <div class="avatar10" mat-card-avatar></div>
+          <div class="avatar11" mat-card-avatar></div>
+        </div>
+    </div>
+  </div>
+
+  <!-- For small screens -->
+  <div fxLayout="column" fxLayoutAlign="start center" fxHide="true" fxShow.lt-md="hide" fxLayoutGap="20px" fxFill>
+    <!-- Icons -->
+    <div style="width: 100%" fxLayout="row" fxLayoutAlign="center center">
+      <div id="logo-image" fxFlex="34px"></div>
+      <div id="top-icons-sm-div" fxLayout="row" fxLayoutAlign="space-around center" fxFlex>
+        <mat-icon class="top-icons-sm">tag_faces</mat-icon>
+        <mat-icon class="top-icons-sm">message</mat-icon>
+        <mat-icon class="top-icons-sm">speaker_phone</mat-icon>
+        <mat-icon class="top-icons-sm">find_in_page</mat-icon>
+      </div>
+      <div id="top-right-icon-sm-div" fxLayoutAlign="center center">
+        <mat-icon class="top-right-icon-sm">message</mat-icon>
+      </div>
+    </div>
+    <!-- Header -->
+    <mat-card fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <img mat-card-image src="../../assets/cover.jpg">
+      <div id="cover-icons" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+        <mat-icon id="cover-icon1">sentiment_satisfied_alt</mat-icon>
+        <mat-icon id="cover-icon2">message</mat-icon>
+        <mat-icon id="cover-icon3">settings</mat-icon>
+      </div>
+      <div fxLayout="row" fxLayout="center center" fxLayoutGap="10px">
+        <button class="nav-button-sm" mat-stroked-button>Timeline</button>
+        <button class="nav-button-sm" mat-stroked-button>About</button>
+        <button class="nav-button-sm" mat-stroked-button>Friends</button>
+      </div>
+      <div fxLayout="row" fxLayout="center center" fxLayoutGap="10px">
+        <button class="nav-button-sm" mat-stroked-button>Photos</button>
+        <button class="nav-button-sm" mat-stroked-button>Videos</button>
+        <button class="nav-button-sm" mat-stroked-button>...</button>
+      </div>
+      <div>
+        <div class="avatar-sm" mat-card-avatar></div>
+        <h4 style="margin: 10px 0 0 0">{{user.username}}</h4>
+        <h6 style="margin: 0">San Francisco, CA</h6>
+      </div>
+    </mat-card>
+    <!-- Post -->
+    <mat-card class="content-card" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="20px">
+      <div style="width: 100%;" fxLayout="row" fxLayoutAlign="end center">
+        <mat-icon class="content-icons-sm">language</mat-icon>
+        <mat-icon class="content-icons-sm">favorite_border</mat-icon>
+        <mat-icon class="content-icons-sm">event</mat-icon>
+        <mat-icon class="content-icons-sm">send</mat-icon>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <div fxLayout="column" fxLayoutGap="10px">
+          <div fxLayout="row" fxLayoutAlign="start center">
+            <div class="avatar-small" mat-card-avatar></div>
+            <div fxLayout="column" fxLayoutAlign="center start">
+              <h6>{{user.username}}</h6>
+              <h6>19 hours ago</h6>
+            </div>
+          </div>
+          <h6>General definitions of music include common elements such as pitch (which governs melody and harmony), rhythm (and its associated concepts tempo, meter, and articulation), dynamics (loudness and softness), and the sonic qualities of timbre and texture (which are sometimes termed the "color" of a musical sound).</h6>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div style="width: 100%;" fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <mat-icon>favorite_border</mat-icon>
+          <h6>8</h6>
+          <div class="avatar1" mat-card-avatar></div>
+          <div class="avatar2 avatar-overlap" mat-card-avatar></div>
+          <div class="avatar3 avatar-overlap" mat-card-avatar></div>
+          <div class="avatar4 avatar-overlap" mat-card-avatar></div>
+          <div class="avatar5 avatar-overlap" mat-card-avatar></div>
+          <div fxLayout="column" fxLayoutAlign="center start">
+            <h6>Janny Robert and</h6>
+            <h6>6 more liked this</h6>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="end center">
+          <mat-icon>language</mat-icon>
+          <h6>17</h6>
+          <mat-icon>send</mat-icon>
+          <h6>24</h6>
+        </div>
+      </div>
+    </mat-card>
   </div>
 </body>
+  
